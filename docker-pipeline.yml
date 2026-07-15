@@ -1,0 +1,18 @@
+trigger:
+- main
+
+pool:
+  name: AzureDevOps-Age
+
+steps:
+- script: docker --version
+  displayName: "Check Docker"
+
+- script: docker build -t my-nginx-app .
+  displayName: "Build Docker Image"
+
+- script: docker run -d --name my-nginx-container -p 8080:80 my-nginx-app
+  displayName: "Run Docker Container"
+
+- script: docker ps
+  displayName: "List Running Containers"
