@@ -1,8 +1,8 @@
 trigger:
-- main
+- master
 
 pool:
-  name: AzureDevOps-Age
+  name: Default
 
 steps:
 - script: docker --version
